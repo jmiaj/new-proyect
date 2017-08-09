@@ -1,0 +1,9 @@
+{% extends "eleccion/base.html" %}
+
+{% block content %}
+<div class="alert alert-success">
+  <strong>{{ usuario }} gracias por registarte!</strong> 
+</div>
+<a href="{% url 'appJM:login' %}"><button type="submit" class="btn btn-primary">Login</button></a>
+	
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends 'eleccion/base.html' %}
+
+    {% block content %}
+        <form method="POST">
+            {% csrf_token %}
+            <h3>¿Seguro que quieres eliminar la entrada {{ mesa.nombre }}?</h3>
+            <div class="row">
+          		<div class="col-md-4">
+    	 	        <button type="submit" class="btn btn-danger" style="float:right">Si, eliminar</button>
+    		        <a href="{% url 'mesa_url' %}" class="btn btn-default" >Cancelar</a>       			
+            	</div>
+            </div>
+        </form>
+    {% endblock %}

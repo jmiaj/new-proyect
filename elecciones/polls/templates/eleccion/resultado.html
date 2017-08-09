@@ -1,0 +1,30 @@
+{% extends "eleccion/base.html" %}
+
+    {% block content %}
+    	<h1  class="page-header">Resultados</h1>
+
+        {% if perms.eleccion.change_resultado %}
+			<a href="{% url 'resultado_crear_url' %}">Añadir Resultado</a>
+		{% endif %}
+		
+		<div class="row">
+			
+				<ul>
+					{% for x in result_list %}
+						<li>Partido: {{x.partido}}</li>
+						<li>Mesa: {{x.mesa}}</li>
+						<li>Nº Votos:  {{x.votos}}</li>
+						{% if perms.eleccion.change_resultado %}
+							<a href="{% url 'resultado_editar_url' x.id %}">Editar</a>
+							<a href="{% url 'resultado_eliminar_url' x.id %}">Eliminar</a>
+						{% endif %}
+						<hr>		   		        								
+					{% empty %}
+						<li>No hay resultados aún.</li>
+					{% endfor %}
+				</ul>
+		</div>
+
+    {% endblock %}
+
+    

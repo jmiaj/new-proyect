@@ -1,0 +1,25 @@
+{% extends "eleccion/base.html" %}
+
+    {% block content %}
+    	<h1  class="page-header">Partidos</h1>
+
+        {% if perms.eleccion.change_circunscripcion %}
+			<a href="{% url 'partido_crear_url' %}">Añadir Partidos</a>
+		{% endif %}
+
+
+		<div class="row">
+		{% if partido_list %}
+			{% for x in partido_list %}
+				
+				<h4><strong>{{ x.nombre }}</strong></h4>			
+				
+				<a href="{% url 'partido_eliminar_url' x.id %}" class="btn btn-danger" role="button"><button type="button" class="btn btn-info">Eliminar</button></a>
+			{% endfor %}
+		{% else %}
+	    	<li>No hay partidos aún.</li>
+		{% endif %}
+
+		</div>
+
+    {% endblock %}

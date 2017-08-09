@@ -1,0 +1,26 @@
+{% extends "eleccion/base.html" %}
+
+	{% block content %}
+		<h1  class="page-header">Listado de Mesas</h1>
+
+		{% if perms.eleccion.change_mesa %}
+			<a href="{% url 'mesa_crear_url' %}">Añadir Mesa</a>
+		{% endif %}
+
+
+		<div class="row">
+
+			{% for x in listadoMesa %}
+				<a href="{% url 'mesa_detalle_url' x.id %}">
+					<div class="col-md-2 cajaBlanca">
+							<h4><strong>{{ x.nombre }}</strong></h4>
+							<small>Escaños: </small> <strong>{{ x.nEscanos }}</strong>    		        					
+					</div>
+				</a>			
+			{% empty %}
+					<li>No hay mesas aún.</li>
+			{% endfor %}
+
+		</div>
+
+	{% endblock %}

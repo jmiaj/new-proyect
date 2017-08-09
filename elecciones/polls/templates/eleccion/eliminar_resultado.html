@@ -1,0 +1,15 @@
+{% extends 'eleccion/base.html' %}
+
+    {% block content %}
+        <h1 class="page-header">Confirmación para eliminar {{ resultado.mesa }}</h1>
+        <form method="post" action="">
+            {% csrf_token %}
+            <p>¿Seguro que quieres eliminar la entrada {{ resultado.mesa }}?</p>
+            <div class="row">
+          		<div class="col-md-4">
+    	 	        <button type="submit" class="btn btn-danger" style="float:right">Si, eliminar</button>
+    		        <a href="{% url 'resultado_url' %}" class="btn btn-default" >Cancelar</a>       			
+            	</div>
+            </div>
+        </form>
+    {% endblock %}

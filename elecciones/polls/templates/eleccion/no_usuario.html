@@ -1,0 +1,9 @@
+{% extends "eleccion/base.html" %}
+{% load staticfiles %}
+{% block content %}
+<div class="alert alert-danger">
+  <strong>Error en el login. El usuario y la contraseña no coinciden o no existen.</strong>
+</div>
+  <a href="{% url 'login' %}"><button type="button">Intentalo de nuevo</button></a>
+{% endblock %}
+
